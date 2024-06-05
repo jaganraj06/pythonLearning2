@@ -86,15 +86,23 @@ while True:
     if ball.xcor()  > 390:
         ball.setx(390)
         ball.dx *= -1
+        score_a += 1
+        pen.clear()
+        pen.write("Player A: {} Player B: {}".format(score_a,score_b), align="center", font=("Ariel", 24, "normal"))
+
     #left wall
     if ball.xcor() < -390:
         ball.setx(-390)
         ball.dx *= -1
+        score_b += 1
+        pen.clear()
+        pen.write("Player A: {} Player B: {}".format(score_a, score_b), align="center", font=("Ariel", 24, "normal"))
+
     #collision with paddles
-    if ball.xcor() > 370 and right_paddle.ycor()-50 < ball.ycor()<right_paddle.ycor()-50:
+    if ball.xcor() > 380 and right_paddle.ycor()-50 < ball.ycor()<right_paddle.ycor()-50:
         ball.setx(360)
         ball.dx *= -1
-    if ball.xcor() < -370 and left_paddle.ycor()-50 < ball.ycor()<left_paddle.ycor()-50:
+    if ball.xcor() < -380 and left_paddle.ycor()-50 < ball.ycor()<left_paddle.ycor()-50:
         ball.setx(-360)
         ball.dx *= -1
 
