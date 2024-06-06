@@ -66,8 +66,6 @@ win.onkeypress(right_paddle_down,'Down')
 
 
 
-
-
 while True:
     win.update()
     #ball movement
