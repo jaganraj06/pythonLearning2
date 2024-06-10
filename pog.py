@@ -31,12 +31,12 @@ right_paddle.goto(380,0)
 
 #ball
 ball = turtle.Turtle()
-ball.speed(0)
+ball.speed(1)
 ball.shape("circle")
 ball.color("red")
 ball.penup()
-ball.dx = 0.15
-ball.dy = 0.15
+ball.dx = 0.9
+ball.dy = 0.9
 
 #score
 pen = turtle.Turtle()
@@ -80,13 +80,30 @@ while True:
     if ball.ycor() < -290:
         ball.sety(-290)
         ball.dy *= -1
+
+#right paddle
+    if ball.xcor() > 360 and ball.ycor() < (right_paddle.ycor()+50) and  ball.ycor() > (ball.ycor() -50):
+        print("right paddle")
+        ball.setx(360)
+        ball.dx *= -1
+
     #right wall
-    if ball.xcor()  > 390:
+    if ball.xcor() > 390:
         ball.setx(390)
         ball.dx *= -1
         score_a += 1
         pen.clear()
         pen.write("Player A: {} Player B: {}".format(score_a,score_b), align="center", font=("Ariel", 24, "normal"))
+    #left paddle
+    #and ball.ycor() < (left_paddle.ycor()+50) and ball.ycor() > (ball.ycor() -50)and ball.ycor() < (left_paddle.ycor()+50) and ball.ycor() > (ball.ycor() -50)
+    if ball.xcor() < -360 and ball.ycor() < (left_paddle.ycor()+50) and  ball.ycor() > (ball.ycor() -50):
+        print("left paddle")
+        ball.setx(-360)
+        ball.dx *= -1
+        #ball.dy = 0
+        #score_b += 1
+        pen.clear()
+        pen.write("Player A: {} Player B: {}".format(score_a, score_b), align="center", font=("Ariel", 24, "normal"))
 
     #left wall
     if ball.xcor() < -390:
@@ -97,12 +114,12 @@ while True:
         pen.write("Player A: {} Player B: {}".format(score_a, score_b), align="center", font=("Ariel", 24, "normal"))
 
     #collision with paddles
-    if ball.xcor() > 380 and right_paddle.ycor()-50 < ball.ycor()<right_paddle.ycor()-50:
-        ball.setx(360)
-        ball.dx *= -1
-    if ball.xcor() < -380 and left_paddle.ycor()-50 < ball.ycor()<left_paddle.ycor()-50:
-        ball.setx(-360)
-        ball.dx *= -1
+    #if ball.xcor() > 340 and right_paddle.ycor()+40 < ball.ycor()<right_paddle.ycor()-40:
+
+        #ball.dx *= -1
+    #if ball.xcor() < -340 and left_paddle.ycor()+40 < ball.ycor()<left_paddle.ycor()-40:
+
+        #wball.dx *= -1
 
 
 
